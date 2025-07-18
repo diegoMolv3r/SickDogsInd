@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body style="background: #000000;">
+    <header>
+        <a href="#">
+            <img src="./img/brand/Logotipo.jpg" alt="logo">
+        </a>
+
+        <div>
+            <select type="text" id="inputCategoria">
+                <option value="todos">Elige un Filtro</option>
+                <option value="remera">Remeras</option>
+                <option value="campera">Camperas</option>
+            </select>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <div class="d-flex mx-4">
+                <i class="bi bi-cart-fill fs-2" id="boton-modal-detalle-producto" style="cursor: pointer;"></i>
+                <span id="contadorDeProductos">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="seccion-productos">
+            
+        </section>
+
+        <section>
+            <p>Hoy no vengo a venderles nada, vengo a presentarme y a contarles un poco la historia de esta marca.
+                Soy @lucasmolver , la unica persona detras de Sick Dogs.
+                
+                Los ultimos 10 años de mi vida practicamente los pase laburando en la calle arriba de un vehiculo.
+                Fui remisero, uber, chofer de ambulancias, repartidor, fletero, y cualquier tipo de cosa que se pueda hacer arriba de un auto/camioneta.
+                
+                En septiembre de este año, la situacion economica y la baja de laburo en el lugar donde estaba (y donde labure los ultimos 4 años) me dio el empujon para renunciar a ese trabajo.
+                
+                Ahi es donde nace Sick dogs, con un objetivo clarisimo:
+                NUNCA MAS VOLVER A TRABAJAR EN UN LUGAR DONDE SEA SIMPLEMENTE UN NUMERO.
+                
+                Hoy en dia, me sustento de esta marca, asi como de mi trabajo paralelo, el cual disfruto muchisimo, que es el de Stage (Asistente de bandas, plomo, o como sea que lo conozcan).
+                
+                Mi economia de momento es bastante menos estable que antes, por eso soy tan agradecido a quienes se toman el tiempo de tirarme la buena con este proyecto, asi como a todxs lxs que aportan con su compra.
+                Asi mismo, gane en paz mental, y tiempo de sobra para dedicarle a mi gente, asi como a los trabajos que me gustan y a mis dos bandas: @in.tribu y @kampai.plagas .
+                
+                Gracias si leiste llegaste hasta aca!
+                
+                Te deseo un hermoso fin de año, y un hermoso comienzo para el que viene.
+                
+                Y si no estas contento donde estas, SALI DE AHI.
+                El camino es dificil, la recompensa es increible ✊</p>
+        </section>
+    </main>
+
+    <dialog id="modal-carrito">
+        <h2>Producto agregado al carrito!</h2>
+        <i class="bi bi-x-lg" id="boton-cerrar-modal"></i>
+        <i class="bi bi-cart-check-fill"></i>
+    </dialog>   
+
+    <dialog id="modal-detalle-producto" style="max-width: 1200px; width: auto; max-height: 700px;">
+        <i class="bi bi-x-circle-fill fs-3 position-absolute top-0 end-0 m-3" id="boton-cerrar-modal-detalle" style="cursor: pointer; color: #dc143c;"></i>    
+        
+        <div class="modal-detalle-container">
+            <!-- Columna izquierda: Imágenes adicionales -->
+            <div class="imagenes-adicionales">
+                <div class="imagen-principal">
+                    <img src="" alt="" id="modal-imagen-principal" class="imagen-principal">
+                </div>
+                <div class="miniaturas-container" id="miniaturas-container">
+                    <!-- Las miniaturas se agregarán dinámicamente -->
+                </div>
+            </div>
+            
+            <!-- Columna derecha: Información del producto -->
+            <div class="informacion-producto-detalle">
+                <h2 id="modal-titulo" class="titulo-producto-detalle"></h2>
+                <p id="modal-descripcion" class="descripcion-producto-detalle"></p>
+                
+                <div class="precio-container">
+                    <span class="precio-simbolo">$</span>
+                    <span id="modal-precio" class="precio-valor"></span>
+                </div>
+                
+                <div class="metodos-pago-container">
+                    <h4>Métodos de Pago</h4>
+                    <div class="metodos-pago">
+                        <div class="metodo-pago">
+                            <i class="bi bi-cash-coin"></i>
+                            <span>Efectivo</span>
+                        </div>
+                        <div class="metodo-pago">
+                            <i class="bi bi-credit-card"></i>
+                            <span>Tarjeta de Crédito</span>
+                        </div>
+                        <div class="metodo-pago">
+                            <i class="bi bi-phone"></i>
+                            <span>Billetera Virtual</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="boton-agregar-container" id="metodos-producto">
+                    <!-- El botón se agregará dinámicamente -->
+                </div>
+            </div>
+        </div>
+        
+    </dialog>
+
+    <dialog id="modal-carrito-productos">
+        <i class="bi bi-x-lg" id="boton-cerrar-modal-carrito-productos" style="position: absolute; top: 10px; right: 10px;"></i>
+        <h3>Productos agregados</h3>
+        <div id="contenedor-productos-agregados">
+            
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center">
+            <i class="bi bi-trash fs-2" id="boton-limpiar-carrito-productos"></i>
+            <p>Total a pagar: <strong id="contadorMontoTotal">$0.0</strong></p>
+        </div>
+    </dialog>
+
+    <dialog id="banner-flotante">
+        <div class="contenido-banner">
+            <i class="bi bi-x-lg boton-cerrar-banner" id="boton-cerrar-banner"></i>
+            <div class="barra-progreso">
+                <span class="progreso-fill" id="progreso-fill"></span>
+            </div>
+            <div class="oferta-categoria">
+                <h3>¡OFERTA ESPECIAL!</h3>
+                <span class="categoria-destacada" id="categoria-destacada"></span>
+            </div>
+            <div class="producto-oferta">
+                <img src="" alt="" id="imagen-producto-oferta">
+                <div class="info-producto-oferta">
+                    <h4 id="nombre-producto-oferta"></h4>
+                    <p id="descripcion-producto-oferta"></p>
+                    <div class="precio-oferta">
+                        <span class="precio-anterior" id="precio-anterior"></span>
+                        <span class="precio-actual" id="precio-actual"></span>
+                    </div>
+                    <button class="boton-agregar-oferta" id="boton-agregar-oferta">
+                        <i class="bi bi-cart-plus"></i>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="modal-checkout">
+        <i class="bi bi-x-lg" id="boton-cerrar-checkout" style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <h2>Finalizar Compra</h2>
+        
+        <form id="formulario-checkout" class="formulario-checkout">
+            <div class="grupo-formulario">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" maxlength="10" required>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="direccion">Dirección de entrega:</label>
+                <textarea id="direccion" name="direccion" rows="3" required></textarea>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="fecha-entrega">Fecha de entrega:</label>
+                <input type="date" id="fecha-entrega" name="fecha-entrega" required>
+            </div>
+            
+            <div class="grupo-formulario">
+                <label for="metodo-pago">Método de pago:</label>
+                <select id="metodo-pago" name="metodo-pago" required>
+                    <option value="">Selecciona un método</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjeta-credito">Tarjeta de Crédito</option>
+                    <option value="tarjeta-debito">Tarjeta de Débito</option>
+                    <option value="billetera-virtual">Billetera Virtual</option>
+                </select>
+            </div>
+            
+            <!-- Eliminado grupo-tarjeta y grupo-cuotas -->
+            
+            <div class="botones-checkout">
+                <button type="button" class="boton-cancelar" id="boton-cancelar-checkout">Cancelar</button>
+                <button type="submit" class="boton-confirmar">Confirmar Compra</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modal-confirmacion">
+        <div class="contenido-confirmacion">
+            <i class="bi bi-check-circle-fill icono-confirmacion"></i>
+            <h3>¡Compra realizada con éxito!</h3>
+            <p>Gracias por tu compra. Recibirás un email con los detalles de tu pedido.</p>
+            <button class="boton-confirmar" id="boton-cerrar-confirmacion">Aceptar</button>
+        </div>
+    </dialog>
+
+    <footer>
+        <p style="color: #ffffff;">Molverrrrr</p>
+    </footer>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>

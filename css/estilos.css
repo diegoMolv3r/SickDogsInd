@@ -22,7 +22,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     flex: 1;
     margin-top: 50px;
 }
@@ -826,3 +826,4 @@ select{
     margin: 0;
     line-height: 1.5;
 }
+

@@ -281,7 +281,8 @@ function crearProducto(producto) {
 
 
 
-const inputCategoria = document.getElementById('inputCategoria')
+// Obtener todos los inputs radio de categoría
+const filtrosCategoria = document.querySelectorAll('input[name="categoria"]')
 
 function limpiarProductos() {
     seccion_productos.replaceChildren()
@@ -291,14 +292,22 @@ productos.forEach(producto => {
     crearProducto(producto)
 })
 
-inputCategoria.addEventListener('input', () => {
+// Función para filtrar productos
+function filtrarProductos(categoriaSeleccionada) {
     limpiarProductos()
     productos.forEach(producto => {
-        if (inputCategoria.value === 'todos') {
+        if (categoriaSeleccionada === 'todos') {
             crearProducto(producto);
-        } else if (producto.categoria.toLowerCase() === inputCategoria.value.toLowerCase().trim()) {
+        } else if (producto.categoria.toLowerCase() === categoriaSeleccionada.toLowerCase().trim()) {
             crearProducto(producto);
         }
+    })
+}
+
+// Event listeners para los filtros radio
+filtrosCategoria.forEach(filtro => {
+    filtro.addEventListener('change', () => {
+        filtrarProductos(filtro.value)
     })
 })
 
@@ -635,11 +644,13 @@ function mostrarOferta(categoria) {
     }, 10000);
 }
 // Event listener para cambio de categoría
-inputCategoria.addEventListener('change', () => {
-    const categoriaSeleccionada = inputCategoria.value;
-    if (categoriaSeleccionada !== 'todos') {
-        mostrarOferta(categoriaSeleccionada);
-    }
+filtrosCategoria.forEach(filtro => {
+    filtro.addEventListener('change', () => {
+        const categoriaSeleccionada = filtro.value;
+        if (categoriaSeleccionada !== 'todos') {
+            mostrarOferta(categoriaSeleccionada);
+        }
+    })
 });
 
 // Función para animar la barra de progreso

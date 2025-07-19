@@ -216,25 +216,28 @@ footer{
     width: 100%;
     gap: 20px;
     align-items: flex-start;
+    justify-content: space-between;
 }
 
 .imagenes-adicionales{
     display: flex;
-    flex-direction: column;
-    width: 60%;
-    gap: 15px;
+    flex-direction: row-reverse;
+    width: 50%;
+    gap: 20px;
     height: fit-content;
 }
 
 .imagen-principal{
-    width: 100%;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     border-radius: 10px;
     overflow: hidden;
     border: 2px solid #333;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #1a1a1a;
+    object-fit: contain;
 }
 
 .imagen-principal img{
@@ -245,30 +248,53 @@ footer{
 
 .miniaturas-container{
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    min-height: 80px;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 100px;
+    flex-shrink: 0;
     background: rgba(255, 255, 255, 0.05);
     padding: 10px;
     border-radius: 8px;
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #dc143c #333;
+}
+
+.miniaturas-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.miniaturas-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 3px;
+}
+
+.miniaturas-container::-webkit-scrollbar-thumb {
+    background: #dc143c;
+    border-radius: 3px;
+}
+
+.miniaturas-container::-webkit-scrollbar-thumb:hover {
+    background: #b22222;
 }
 
 .miniatura{
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     border: 2px solid #333;
     transition: all 0.3s ease;
     flex-shrink: 0;
+    background: #1a1a1a;
 }
 
 .miniatura:hover{
     border-color: #dc143c;
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(220, 20, 60, 0.3);
 }
 
 .miniatura img{
@@ -280,7 +306,8 @@ footer{
 
 .miniatura.activa{
     border-color: #dc143c;
-    box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
+    transform: scale(1.1);
 }
 
 .informacion-producto-detalle{
@@ -288,13 +315,11 @@ footer{
     flex-direction: column;
     width: 40%;
     gap: 15px;
-    padding: 15px;
+    padding: 20px;
     background: #2a2a2a;
     border-radius: 10px;
     border: 1px solid #333;
-    height: fit-content;
-    max-height: 100%;
-    overflow-y: auto;
+    height: 500px;    
 }
 
 .titulo-producto-detalle{
@@ -317,7 +342,7 @@ footer{
     display: flex;
     align-items: baseline;
     gap: 5px;
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 .precio-simbolo{
@@ -484,6 +509,80 @@ footer{
 .boton-checkout:hover{
     background: #b22222;
     transform: translateY(-2px);
+}
+
+/* Estilos para la sección de productos */
+#productos {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+/* Estilos para los filtros clickeables */
+#filtros {
+    width: 250px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+}
+
+.filtros-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.filtros-titulo {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #dc143c;
+    padding-bottom: 10px;
+}
+
+.filtros-container input[type="radio"] {
+    display: none;
+}
+
+.filtro-boton {
+    background: #333;
+    color: #ffffff;
+    padding: 15px 20px;
+    border: 2px solid #444;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+}
+
+.filtro-boton:hover {
+    background: #dc143c;
+    border-color: #dc143c;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(220, 20, 60, 0.3);
+}
+
+.filtros-container input[type="radio"]:checked + .filtro-boton {
+    background: #dc143c;
+    border-color: #dc143c;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+    transform: translateX(5px);
 }
 
 select{

@@ -926,3 +926,149 @@ select{
     line-height: 1.5;
 }
 
+/* Estilos para los talles */
+.talles-container {
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.talles-titulo {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.talles-buttons-container {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.talle-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    
+}
+
+.talle-button:hover {
+    border-color: #007bff;
+    background: #f8f9fa;
+}
+
+.talle-button.selected {
+    border-color: #007bff;
+    background: #007bff;
+    color: white;
+}
+
+.guia-talles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.guia-talles:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.guia-talles i {
+    font-size: 1rem;
+}
+
+.boton-agregar-carrito {
+    background: #dc143c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: .3s;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.boton-agregar-carrito:hover {
+    background: #b22222;
+    transform: translateY(-2px);
+}
+
+.talles-producto {
+    color: #dc143c;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para el modal de guía de talles */
+#modal-guia-talles[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+#modal-guia-talles::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.contenido-guia-talles {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+}
+
+.contenido-guia-talles h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.boton-cerrar-guia-talles {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #dc143c;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+.boton-cerrar-guia-talles:hover {
+    color: #b22222;
+}
+
+.imagen-guia-talles {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

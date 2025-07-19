@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sick Dogs IND</title>
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="stylesheet" href="./css/about-us.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
@@ -83,7 +83,6 @@
         <i class="bi bi-x-circle-fill fs-3 position-absolute top-0 end-0 m-3" id="boton-cerrar-modal-detalle" style="cursor: pointer; color: #dc143c;"></i>    
         
         <div class="modal-detalle-container">
-            <!-- Columna izquierda: Imágenes adicionales -->
             <div class="imagenes-adicionales">
                 <div class="imagen-principal">
                     <img src="" alt="" id="modal-imagen-principal" class="imagen-principal">
@@ -93,7 +92,6 @@
                 </div>
             </div>
             
-            <!-- Columna derecha: Información del producto -->
             <div class="informacion-producto-detalle">
                 <h2 id="modal-titulo" class="titulo-producto-detalle"></h2>
                 <p id="modal-descripcion" class="descripcion-producto-detalle"></p>
@@ -104,7 +102,6 @@
                 </div>
         
                 <div class="boton-agregar-container" id="metodos-producto">
-                    <!-- El botón se agregará dinámicamente -->
                 </div>
             </div>
         </div>
@@ -208,6 +205,14 @@
             <h3>¡Compra realizada con éxito!</h3>
             <p>Gracias por tu compra. Recibirás un email con los detalles de tu pedido.</p>
             <button class="boton-confirmar" id="boton-cerrar-confirmacion">Aceptar</button>
+        </div>
+    </dialog>
+
+    <dialog id="modal-guia-talles">
+        <div class="contenido-guia-talles">
+            <i class="bi bi-x-circle-fill boton-cerrar-guia-talles" id="boton-cerrar-guia-talles"></i>
+            <h3>Guía de Talles</h3>
+            <img src="./img/brand/TablaTalles.jpeg" alt="Tabla de talles" class="imagen-guia-talles">
         </div>
     </dialog>
 

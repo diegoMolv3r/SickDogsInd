@@ -63,10 +63,10 @@ footer{
 
 #seccion-productos{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin-bottom: 50px;
     width: 100%;
 }
 
@@ -80,7 +80,8 @@ footer{
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     padding: 15px;
-    margin: 10px;
+    margin: 0 20px 40px 20px;
+
     transition: .2s;
     background: #1a1a1a;
     border: 1px solid #333;
@@ -509,21 +510,17 @@ footer{
     transform: translateY(-2px);
 }
 
-/* Estilos para la sección de productos */
 #productos {
     display: flex;
     width: 100%;
     gap: 30px;
     align-items: flex-start;
+    justify-content: space-between;
     margin-top: 50px;
 }
 
-/* Estilos para los filtros clickeables */
 #filtros {
     width: 250px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 100px;
 }
 
 .filtros-container {
@@ -1068,5 +1065,40 @@ select{
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+}
+
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+    z-index: -1;
+    transform: translateX(-50%);
 }
 

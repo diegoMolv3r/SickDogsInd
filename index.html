@@ -6,24 +6,34 @@
     <title>Sick Dogs IND</title>
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="stylesheet" href="./css/about-us.css">
+    <link rel="stylesheet" href="./css/hero.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body style="background: #000000;">
     <header>
         <a href="#">
-            <img src="./img/brand/Logotipo.jpg" alt="logo">
+            <!-- <img src="./img/brand/Logotipo.png" alt="logo"> -->
         </a>
 
         <div class="d-flex align-items-center">
             <div class="d-flex mx-4">
-                <i class="bi bi-cart-fill fs-2" id="boton-modal-detalle-producto" style="cursor: pointer;"></i>
-                <span id="contadorDeProductos">0</span>
+                <i class="bi bi-cart-fill fs-2" id="boton-modal-detalle-producto" style="cursor: pointer; color: white;"></i>
+                <span id="contadorDeProductos" style="color: #dc143c;">0</span>
             </div>
         </div>
     </header>
 
     <main>
+        <section id="hero">
+            <img src="./img/abandoned-alley-psychiatric-hospital.jpg" alt="Imagen de fondo" class="hero-background-image">
+            <div class="hero-content">
+                <h1>SICK DOGS</h1>
+                <h2>INDUMENTARIA</h2>
+                <a href="#productos">VER PRODUCTOS</a>
+            </div>
+        </section>
+
         <section id="productos">
             <aside id="filtros">
                 <div class="filtros-container">

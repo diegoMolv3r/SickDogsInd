@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { FilterComponent } from './filter/filter.component';
-import { ProductsContainerComponent } from './products-container/products-container.component';
+import { Filter } from './filter/filter'; 
+import { ProductsContainer } from './products-container/products-container';
 
 @Component({
   selector: 'app-products',
-  imports: [FilterComponent, ProductsContainerComponent],
+  imports: [Filter, ProductsContainer],
   templateUrl: './products.html',
   styleUrl: './products.css'
 })
+
 export class Products {
 
 }

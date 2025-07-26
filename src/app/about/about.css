@@ -1,0 +1,118 @@
+.about-us-section {
+    background: #000000;
+    margin: 50px 0;
+    display: flex;
+    width: 100%;
+    max-width: 1500px;
+    height: 600px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+    overflow: hidden;
+}
+
+.about-us-image {
+    width: 35%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.about-us-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-us-content {
+    flex: 1;
+    background: #1a1a1a;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.about-us-title {
+    color: #dc143c;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.about-us-text {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+}
+
+.about-us-text .highlight {
+    color: #dc143c;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.about-us-text strong {
+    color: #dc143c;
+    font-weight: bold;
+}
+
+/* Responsive para la sección About Us */
+@media (max-width: 768px) {
+    .about-us-section {
+        flex-direction: column;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .about-us-image {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .about-us-content {
+        padding: 25px;
+        height: auto;
+    }
+    
+    .about-us-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-us-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-section {
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .about-us-image {
+        height: 250px;
+    }
+    
+    .about-us-content {
+        padding: 20px;
+    }
+    
+    .about-us-title {
+        font-size: 1.5rem;
+    }
+    
+    .about-us-text {
+        font-size: 0.9rem;
+    }
+}

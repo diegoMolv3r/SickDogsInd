@@ -1,7 +1,7 @@
 #seccion-productos{
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-bottom: 50px;
     width: 100%;

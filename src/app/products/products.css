@@ -1,8 +1,7 @@
-#productos {
+#productos{
     display: flex;
-    width: 100%;
-    gap: 30px;
     align-items: flex-start;
     justify-content: space-between;
-    margin-top: 50px;
+    margin: auto;
+    max-width: 1500px;
 }

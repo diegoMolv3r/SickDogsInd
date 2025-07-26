@@ -4,3 +4,7 @@ main {
     align-items: center;
     width: 100%;
 }
+
+.bi-x-lg{
+    font-size: 24px;
+}

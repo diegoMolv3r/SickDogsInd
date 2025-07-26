@@ -1,11 +1,11 @@
-<article class="producto">
-    <img src="assets/img/remeras/Korn/Korn1.jpeg" alt="">
+<article class="producto" ngFor="let producto of productos">
+    <img [src]="producto.imagen" [alt]="producto.nombre">
     <div class="informacion-producto">
-        <h3 class="titulo-producto">Korn</h3>
-        <p class="descripcion-producto">Remera de Korn</p>
-        <span class="categoria-producto">REMERA</span>
+        <h3 class="titulo-producto">{{producto.nombre}}</h3>
+        <p class="descripcion-producto">{{producto.descripcion}}</p>
+        <span class="categoria-producto">{{producto.categoria}}</span>
         <div>
-            <p class="precio-producto"><strong>Precio: </strong>$20000</p>
+            <p class="precio-producto"><strong>Precio: </strong>${{producto.precio}}</p>
             <button class="boton-carrito" precio-producto="" imagen-producto="" nombre-producto="">
                 <i class="bi bi-cart"></i>
             </button>

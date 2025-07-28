@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { ProductsContainer } from '../products-container/products-container'; 
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
 
 // Interfaz para definir la estructura de un producto
 export interface Producto {
@@ -19,4 +19,16 @@ export interface Producto {
   templateUrl: './product-card.html',
   styleUrl: './product-card.css'
 })
-export class ProductCard { @Input() producto!: Producto; }
+export class ProductCard { 
+  @Input() producto: any;
+  @Output() verDetalle = new EventEmitter<Producto>();
+
+  mostrarDetalle() {
+    this.verDetalle.emit(this.producto);
+  }
+
+  // agregarAlCarrito(event: Event) {
+  //   event.stopPropagation();
+  //   console.log('Agregado al carrito:', this.producto.nombre);
+  // }
+}

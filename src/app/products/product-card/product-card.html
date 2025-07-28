@@ -1,4 +1,4 @@
-<article class="producto" ngFor="let producto of productos">
+<article class="producto" ngFor="let producto of productos" (click)="mostrarDetalle()">
     <img [src]="producto.imagen" [alt]="producto.nombre">
     <div class="informacion-producto">
         <h3 class="titulo-producto">{{producto.nombre}}</h3>
@@ -12,4 +12,3 @@
         </div>
     </div>
 </article>
-

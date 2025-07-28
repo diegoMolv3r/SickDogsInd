@@ -1,4 +1,13 @@
-<div id="seccion-productos">
-    <app-product-card *ngFor="let producto of productos" [producto]="producto">
+<section id="seccion-productos">
+    <app-product-card
+      *ngFor="let producto of productos"
+      [producto]="producto"
+      (verDetalle)="abrirModal($event)">
     </app-product-card>
-</div>
+</section>
+  
+<app-modal-detalle-producto 
+    *ngIf="productoSeleccionado" 
+    [producto]="productoSeleccionado"
+    (cerrar)="cerrarModal()">
+</app-modal-detalle-producto>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
 import { ProductCard, Producto } from '../product-card/product-card';
+import { CommonModule } from '@angular/common';
+import { ModalDetalleProducto } from '../../modal-detalle-producto/modal-detalle-producto';
 
 @Component({
   selector: 'app-products-container',
-  imports: [ProductCard, NgFor],
+  imports: [CommonModule, ProductCard, ModalDetalleProducto],
   templateUrl: './products-container.html',
   styleUrl: './products-container.css'
 })
@@ -127,4 +128,18 @@ export class ProductsContainer {
         talles: ['M', 'L', 'XL', 'XXL']
     }
     ]
+
+    productoSeleccionado: any = null;
+
+  abrirModal(producto: any) {
+    this.productoSeleccionado = {
+      ...producto,
+      imagenSeleccionada: producto.imagen,
+      imagenes: producto.imagenes || [producto.imagen]
+    };
+  }
+
+  cerrarModal() {
+    this.productoSeleccionado = null;
+  }
 }

@@ -10,7 +10,7 @@
           <img [src]="producto.imagenSeleccionada || producto.imagen" alt="Imagen principal" class="imagen-principal">
         </div>
         <div class="miniaturas-container">
-          <img *ngFor="let mini of producto.imagenes"
+          <img *ngFor="let mini of obtenerTodasLasImagenes()"
                [src]="mini"
                (click)="seleccionarImagen(mini)"
                class="miniatura"

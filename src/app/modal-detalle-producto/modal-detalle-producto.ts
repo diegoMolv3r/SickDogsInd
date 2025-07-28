@@ -39,4 +39,11 @@ export class ModalDetalleProducto implements OnChanges {
       this.producto.imagenSeleccionada = url;
     }
   }
+
+  obtenerTodasLasImagenes() {
+    if (this.producto) {
+      return [this.producto.imagen, ...this.producto.imagenesAdicionales];
+    }
+    return [];
+  }
 }

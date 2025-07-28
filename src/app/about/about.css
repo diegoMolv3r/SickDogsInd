@@ -66,39 +66,39 @@
     font-weight: bold;
 }
 
-/* Responsive para la sección About Us */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .about-us-section {
         flex-direction: column;
         height: auto;
-        min-height: 600px;
+        width: 90%;
     }
-    
+
     .about-us-image {
         width: 100%;
         height: 300px;
     }
     
     .about-us-content {
-        padding: 25px;
+        padding: 20px;
         height: auto;
-    }
-    
-    .about-us-title {
-        font-size: 2rem;
-        margin-bottom: 20px;
+        justify-content: flex-start;
     }
     
     .about-us-text {
         font-size: 1rem;
         line-height: 1.6;
     }
+    
+    .about-us-text .highlight {
+        font-size: 1rem;
+    }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .about-us-section {
-        height: auto;
-        min-height: 500px;
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 10px;
     }
     
     .about-us-image {
@@ -106,14 +106,66 @@
     }
     
     .about-us-content {
-        padding: 20px;
-    }
-    
-    .about-us-title {
-        font-size: 1.5rem;
+        padding: 15px;
     }
     
     .about-us-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .about-us-text .highlight {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .about-us-section {
+        width: 98%;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+    
+    .about-us-image {
+        height: 200px;
+    }
+    
+    .about-us-content {
+        padding: 12px;
+    }
+    
+    .about-us-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .about-us-text .highlight {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .about-us-section {
+        flex-direction: row;
+        width: 90%;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+    
+    .about-us-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+    .about-us-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding: 20px;
+        height: 100%;
+    }
+    
+    .about-us-text .highlight {
         font-size: 0.9rem;
     }
 }

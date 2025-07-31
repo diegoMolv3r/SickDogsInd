@@ -1,7 +1,6 @@
 #productos{
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
     max-width: 1500px;
 }

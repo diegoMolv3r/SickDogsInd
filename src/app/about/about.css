@@ -129,14 +129,12 @@
     .about-us-image {
         height: 200px;
     }
-    
-    .about-us-content {
-        padding: 12px;
-    }
+   
     
     .about-us-text {
         font-size: 0.85rem;
         line-height: 1.4;
+        text-align: center;
     }
     
     .about-us-text .highlight {
@@ -144,7 +142,7 @@
     }
 }
 
-@media screen and (max-width: 768px) and (orientation: landscape) {
+@media screen and (max-width: 768px) {
     .about-us-section {
         flex-direction: row;
         width: 90%;
@@ -163,7 +161,8 @@
         line-height: 1.4;
         padding: 20px;
         height: 100%;
-    }
+        text-align: center;
+        }
     
     .about-us-text .highlight {
         font-size: 0.9rem;

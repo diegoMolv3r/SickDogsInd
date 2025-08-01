@@ -362,6 +362,7 @@
     .modal-content, #modal-detalle-producto[open] {
         height: auto;
         max-height: 95vh;
+        width: 95%;
     }
     
     .modal-detalle-container {

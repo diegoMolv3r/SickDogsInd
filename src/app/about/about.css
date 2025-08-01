@@ -66,7 +66,7 @@
     font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .about-us-section {
         flex-direction: column;
         height: auto;

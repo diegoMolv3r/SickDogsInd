@@ -361,7 +361,6 @@
 @media (max-width: 768px) {
     .modal-content, #modal-detalle-producto[open] {
         height: auto;
-        max-height: 95vh;
         width: 95%;
     }
     

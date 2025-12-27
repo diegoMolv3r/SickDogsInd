@@ -1,8 +1,7 @@
 <section id="seccion-productos">
     <app-product-card
       *ngFor="let producto of productos"
-      [producto]="producto"
-      (verDetalle)="abrirModal($event)">
+      [producto]="producto">
     </app-product-card>
 </section>
   

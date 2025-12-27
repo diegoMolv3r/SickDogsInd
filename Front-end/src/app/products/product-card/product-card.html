@@ -1,4 +1,4 @@
-<article class="producto" ngFor="let producto of productos" (click)="mostrarDetalle()">
+<article class="producto" [routerLink]="['/producto', producto.nombre]">
     <img [src]="producto.imagen" [alt]="producto.nombre">
     <div class="informacion-producto">
         <h3 class="titulo-producto">{{producto.nombre}}</h3>

@@ -1,43 +1,34 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ProductsService, Producto } from '../services/products.service';
 
 @Component({
-  selector: 'app-modal-detalle-producto',
-  imports: [CommonModule],
+  selector: 'app-detalle-producto',
+  imports: [CommonModule, RouterLink],
   templateUrl: './detalle-producto.html',
   styleUrl: './detalle-producto.css'
 })
-export class ModalDetalleProducto implements OnChanges {
-  @Input() producto: any;
-  @Output() cerrar = new EventEmitter<void>();
+export class DetalleProductoComponent implements OnInit {
+  producto?: Producto;
+  imagenSeleccionada: string = '';
+  private route = inject(ActivatedRoute);
+  private productsService = inject(ProductsService);
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['producto']) {
-      if (this.producto) {
-        this.bloquearScroll();
-      } else {
-        this.desbloquearScroll();
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const nombre = params.get('id');
+      if (nombre) {
+        this.producto = this.productsService.getProductByName(nombre);
+        if (this.producto) {
+          this.imagenSeleccionada = this.producto.imagen;
+        }
       }
-    }
-  }
-
-  bloquearScroll() {
-    document.body.style.overflow = 'hidden';
-  }
-
-  desbloquearScroll() {
-    document.body.style.overflow = 'auto';
-  }
-
-  cerrarModal() {
-    this.desbloquearScroll();
-    this.cerrar.emit();
+    });
   }
 
   seleccionarImagen(url: string) {
-    if (this.producto) {
-      this.producto.imagenSeleccionada = url;
-    }
+    this.imagenSeleccionada = url;
   }
 
   obtenerTodasLasImagenes() {

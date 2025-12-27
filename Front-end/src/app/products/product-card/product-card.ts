@@ -1,34 +1,13 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-
-
-// Interfaz para definir la estructura de un producto
-export interface Producto {
-  nombre: string;
-  descripcion: string;
-  descripcionDetallada: string;
-  precio: number;
-  imagen: string;
-  imagenesAdicionales: string[];
-  categoria: string;
-  talles: string[];
-}
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Producto } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css'
 })
-export class ProductCard { 
-  @Input() producto: any;
-  @Output() verDetalle = new EventEmitter<Producto>();
-
-  mostrarDetalle() {
-    this.verDetalle.emit(this.producto);
-  }
-
-  // agregarAlCarrito(event: Event) {
-  //   event.stopPropagation();
-  //   console.log('Agregado al carrito:', this.producto.nombre);
-  // }
+export class ProductCard {
+  @Input() producto!: Producto;
 }

@@ -1,0 +1,151 @@
+.about-us-section {
+    background: #000000;
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1500px;
+    height: 600px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+    overflow: hidden;
+    margin: 50px auto;
+}
+
+.about-us-image {
+    width: 35%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.about-us-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-us-text {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+}
+
+.about-us-text .highlight {
+    color: #dc143c;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.about-us-text strong {
+    color: #dc143c;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .about-us-section {
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+    }
+
+    .about-us-image {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .about-us-content {
+        padding: 20px;
+        height: auto;
+        justify-content: flex-start;
+    }
+    
+    .about-us-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .about-us-text .highlight {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-us-section {
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    
+    .about-us-image {
+        height: 250px;
+    }
+    
+    .about-us-content {
+        padding: 15px;
+    }
+    
+    .about-us-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .about-us-text .highlight {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .about-us-section {
+        width: 98%;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+    
+    .about-us-image {
+        height: 200px;
+    }
+   
+    
+    .about-us-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+    
+    .about-us-text .highlight {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-us-section {
+        flex-direction: row;
+        width: 90%;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+    
+    .about-us-image {
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+    .about-us-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding: 20px;
+        height: 100%;
+        text-align: center;
+        }
+    
+    .about-us-text .highlight {
+        font-size: 0.9rem;
+    }
+}

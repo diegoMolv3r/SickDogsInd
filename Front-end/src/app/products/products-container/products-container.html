@@ -1,0 +1,8 @@
+<section id="seccion-productos">
+    <app-product-card
+      *ngFor="let producto of productos"
+      [producto]="producto"
+      (verDetalle)="abrirModal($event)">
+    </app-product-card>
+</section>
+  

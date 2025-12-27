@@ -40,3 +40,22 @@
       display: block;
       width: 100%;
   }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a0303;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dc143c;
+    border-radius: 5px;
+    border: 2px solid #1a0303;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1744;
+}

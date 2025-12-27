@@ -1,18 +1,39 @@
-<header class="d-flex align-items-center justify-content-around" style="background-color: #1a1a1a;">
-    <a href="#">
-        <img src="../assets/img/brand/LogoTipo.jpg" alt="logo" width="150px" height="150px" style="object-fit: cover;" class="img-fluid">
-    </a>
+<header class="navbar-dark">
+    <div class="header-container">
+        <a href="#" class="logo-link">
+            <img src="../assets/img/brand/LogoTipo.jpg" alt="logo" class="logo-img">
+        </a>
 
-    <ul class="d-flex align-items-center justify-content-center gap-4 mx-4 my-2 list-unstyled">
-        <li><a href="#" routerLink="/" class="text-white text-decoration-none fs-5 fw-bold text-uppercase">Home</a></li>
-        <li><a href="#" routerLink="/about" class="text-white text-decoration-none fs-5 fw-bold text-uppercase">About</a></li>
-        <li><a href="#" routerLink="/products" class="text-white text-decoration-none fs-5 fw-bold text-uppercase">Products</a></li>
-    </ul>
-    
-    <div class="d-flex align-items-center">
-        <div class="d-flex mx-4">
-            <i class="bi bi-cart-fill fs-2" id="boton-modal-detalle-producto" style="cursor: pointer; color: white;"></i>
-            <span id="contadorDeProductos" style="color: #dc143c;">0</span>
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a routerLink="/" routerLinkActive="active" class="nav-link">
+                        <span class="nav-text">Home</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/about" routerLinkActive="active" class="nav-link">
+                        <span class="nav-text">About</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/products" routerLinkActive="active" class="nav-link">
+                        <span class="nav-text">Products</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="cart-container">
+            <div class="cart-wrapper" (click)="openCart()">
+                <i class="bi bi-cart-fill cart-icon"></i>
+                <span class="cart-badge" *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+            </div>
         </div>
     </div>
+    
+    <app-cart-modal #cartModal></app-cart-modal>
 </header>

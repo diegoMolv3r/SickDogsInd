@@ -1,8 +1,45 @@
 <section id="hero" role="banner" aria-labelledby="hero-title">
-  <img src="/assets/img/fondos/HeroBg.png" alt="Fondo hero con fuego" class="hero-background-image" />
+  <div class="hero-background">
+    <img src="/assets/img/fondos/HeroBg.png" alt="Fondo hero con fuego" class="hero-background-image" />
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+  </div>
+  
   <div class="hero-content">
-    <h1 id="hero-title">Algo mas que un numero</h1>
-    <h2>Dale vida a esa remera que soñas</h2>
-    <a href="#productos" aria-label="Ir a la sección de productos">Ver productos</a>
+    <div class="hero-text-container">
+      <div class="hero-badge">
+        <span class="badge-text">Sick Dogs</span>
+      </div>
+      
+      <h1 id="hero-title" class="hero-title">
+        <span class="title-line line-1">Algo más que</span>
+        <span class="title-line line-2 highlight-red">un número</span>
+      </h1>
+      
+      <h2 class="hero-subtitle">
+        Dale vida a esa remera que soñas
+      </h2>
+      
+      <p class="hero-description">
+        Indumentaria independiente con diseños únicos. 
+        Estilo que refleja tu personalidad.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#productos" class="hero-button primary" aria-label="Ir a la sección de productos">
+          <span class="button-text">Ver Productos</span>
+          <i class="bi bi-arrow-right button-icon"></i>
+          <span class="button-shine"></span>
+        </a>
+        <a routerLink="/about" class="hero-button secondary" aria-label="Conocer más sobre Sick Dogs">
+          <span class="button-text">Conocer Más</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
   </div>
 </section>

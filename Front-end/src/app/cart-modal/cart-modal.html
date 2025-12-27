@@ -1,0 +1,74 @@
+<div class="modal-backdrop" 
+     *ngIf="isOpen" 
+     (click)="onBackdropClick($event)"
+     [class.show]="isOpen">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="modal-title">Carrito de Compras</h2>
+      <button class="close-button" (click)="closeModal()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div *ngIf="cartItems.length === 0" class="empty-cart">
+        <i class="bi bi-cart-x empty-cart-icon"></i>
+        <p class="empty-cart-text">Tu carrito está vacío</p>
+        <p class="empty-cart-subtext">Agrega productos para comenzar</p>
+      </div>
+
+      <div *ngIf="cartItems.length > 0" class="cart-items">
+        <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+          <div class="item-image">
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre">
+          </div>
+          
+          <div class="item-details">
+            <h3 class="item-name">{{ item.producto.nombre }}</h3>
+            <p class="item-info">
+              <span class="item-talle">Talle: {{ item.talle }}</span>
+              <span class="item-price">${{ item.producto.precio }}</span>
+            </p>
+          </div>
+
+          <div class="item-controls">
+            <div class="quantity-controls">
+              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad - 1)">
+                <i class="bi bi-dash"></i>
+              </button>
+              <span class="quantity-value">{{ item.cantidad }}</span>
+              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad + 1)">
+                <i class="bi bi-plus"></i>
+              </button>
+            </div>
+            
+            <button class="remove-btn" (click)="removeItem(i)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+
+          <div class="item-total">
+            <span class="total-label">Subtotal:</span>
+            <span class="total-value">${{ item.producto.precio * item.cantidad }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer" *ngIf="cartItems.length > 0">
+      <div class="footer-actions">
+        <button class="clear-cart-btn" (click)="clearCart()">
+          <i class="bi bi-trash"></i> Vaciar Carrito
+        </button>
+        <div class="total-section">
+          <span class="total-label">Total:</span>
+          <span class="total-amount">${{ getTotalPrice() }}</span>
+        </div>
+      </div>
+      <button class="checkout-btn">
+        <i class="bi bi-bag-check"></i> Finalizar Compra
+      </button>
+    </div>
+  </div>
+</div>
+

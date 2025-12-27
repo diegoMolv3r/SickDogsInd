@@ -5,86 +5,175 @@
     justify-content: flex-start;
     width: 300px;
     height: 650px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 15px;
+    border-radius: 16px;
+    padding: 0;
     margin: 0 20px 40px 20px;
-
-    transition: .2s;
-    /* background: #1a1a1a; */
-    background-image: url("../../../assets/img/fondos/TexturaTarjetas.jpg");
-    background-size: cover;
-    background-position: center;
-    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
-.producto:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(220, 20, 60, 0.3);
-    cursor: pointer;
-    border-color: #dc143c;
+.producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+        rgba(220, 20, 60, 0.05) 0%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.producto:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(220, 20, 60, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(220, 20, 60, 0.4);
+}
+
+.producto:hover::before {
+    opacity: 1;
 }
 
 .producto img{
     height: 380px;
     width: 100%;
     object-fit: cover;
+    transition: all 0.4s ease;
+    filter: brightness(0.9) contrast(1.1);
+    position: relative;
+    z-index: 0;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+    filter: brightness(1) contrast(1.15);
 }
 
 .informacion-producto{
-    margin-top: 10px;
+    margin-top: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    padding: 20px;
+    background: linear-gradient(180deg, 
+        rgba(26, 26, 26, 0.95) 0%, 
+        rgba(13, 13, 13, 0.98) 100%);
+    position: relative;
+    z-index: 2;
 }
 
 .informacion-producto h3{
     text-align: left;
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.producto:hover .informacion-producto h3 {
+    color: #dc143c;
+    text-shadow: 0 0 15px rgba(220, 20, 60, 0.4);
 }
 
 .informacion-producto p{
-    margin: 10px 0;
-    color: #cccccc;
+    margin: 8px 0;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
 }
 
 .categoria-producto{
     display: inline-block;
-    background-image: url("../../../assets/img/fondos/TexturaRoja.jpg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 4px 12px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: #dc143c;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
     margin: 8px 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.producto:hover .categoria-producto {
+    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+    color: #ffffff;
+    border-color: rgba(220, 20, 60, 0.6);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 .informacion-producto div{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.precio-producto {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+}
+
+.precio-producto strong {
+    color: #808080;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.producto:hover .precio-producto {
+    color: #dc143c;
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
 }
 
 .boton-carrito{
-    background: #dc143c;
-    border: none;
-    border-radius: 10px;
-    padding: 8px 12px;
+    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+    border: 1px solid rgba(220, 20, 60, 0.5);
+    border-radius: 8px;
+    padding: 8px 16px;
     cursor: pointer;
-    transition: .3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
 }
 
 .boton-carrito:hover{
-    background: #b22222;
+    background: linear-gradient(135deg, #ff1744 0%, #dc143c 100%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(220, 20, 60, 0.5);
 }
-
 
 /* Icono del carrito */
 .bi-cart{

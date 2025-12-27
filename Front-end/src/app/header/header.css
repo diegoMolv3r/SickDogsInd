@@ -1,18 +1,293 @@
-header{
+header {
     width: 100%;
-    height: 80px;
-    background: #1a1a1a52;
+    min-height: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
     position: fixed;
     top: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(220, 20, 60, 0.3),
+                0 0 40px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(220, 20, 60, 0.1);
+    border-bottom: 2px solid rgba(220, 20, 60, 0.4);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.5s ease-out;
+    font-family: 'Rajdhani', sans-serif;
 }
 
-header img{
-    height: 60px;
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    gap: 25px;
+}
+
+/* Logo Styles */
+.logo-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-link:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.6));
+}
+
+.logo-img {
+    height: 45px;
     width: auto;
     object-fit: contain;
+    transition: all 0.3s ease;
+    filter: brightness(1.1);
+}
+
+.logo-link:hover .logo-img {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(220, 20, 60, 0.8));
+}
+
+/* Navigation Menu */
+.nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-text {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link:hover .nav-text {
+    color: #dc143c;
+    transform: translateY(-2px);
+    text-shadow: 0 0 20px rgba(220, 20, 60, 0.8),
+                 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link.active .nav-text {
+    color: #dc143c;
+    text-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
+}
+
+.nav-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #dc143c, transparent);
+    box-shadow: 0 0 10px rgba(220, 20, 60, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+.nav-link:hover .nav-underline,
+.nav-link.active .nav-underline {
+    width: 80%;
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Cart Container */
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+}
+
+.cart-wrapper:hover {
+    background: rgba(220, 20, 60, 0.2);
+    border-color: rgba(220, 20, 60, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+}
+
+.cart-icon {
+    font-size: 22px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+.cart-wrapper:hover .cart-icon {
+    color: #dc143c;
+    transform: scale(1.1) rotate(-10deg);
+    filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.8));
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #dc143c, #8b0000);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 3px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(220, 20, 60, 0.6),
+                0 0 15px rgba(220, 20, 60, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: pulse 2s infinite;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(220, 20, 60, 0.6),
+                    0 0 15px rgba(220, 20, 60, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 2px 15px rgba(220, 20, 60, 0.8),
+                    0 0 25px rgba(220, 20, 60, 0.6);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .header-container {
+        padding: 0 20px;
+        gap: 20px;
+    }
+    
+    .nav-list {
+        gap: 25px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: 55px;
+        height: 55px;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 15px;
+        gap: 15px;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .nav-list {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+}
+
+/* Glow effect on hover for entire header */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+        rgba(220, 20, 60, 0.1) 0%, 
+        transparent 50%, 
+        rgba(220, 20, 60, 0.05) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+header:hover::after {
+    opacity: 1;
 }

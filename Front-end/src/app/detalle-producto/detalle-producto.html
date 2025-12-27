@@ -34,12 +34,25 @@
           <h4 class="talles-titulo">Selecciona tu talle:</h4>
         
           <div class="talles-buttons-container">
-             <button type="button" class="talle-button" *ngFor="let talle of producto.talles">{{talle}}</button>
+             <button type="button" 
+                     class="talle-button" 
+                     [class.selected]="talleSeleccionado === talle"
+                     (click)="seleccionarTalle(talle)"
+                     *ngFor="let talle of producto.talles">
+               <span>{{talle}}</span>
+             </button>
           </div>
-        
-          <!-- <a href="#" class="guia-talles">
-            <i class="bi bi-rulers"></i> Guía de talles
-          </a> -->
+        </div>
+
+        <div class="add-to-cart-container">
+          <button class="add-to-cart-btn" 
+                  (click)="agregarAlCarrito()"
+                  [disabled]="!talleSeleccionado"
+                  [class.agregado]="agregadoAlCarrito">
+            <i class="bi" [class.bi-cart-plus]="!agregadoAlCarrito" [class.bi-check-circle]="agregadoAlCarrito"></i>
+            <span *ngIf="!agregadoAlCarrito">Agregar al Carrito</span>
+            <span *ngIf="agregadoAlCarrito">¡Agregado!</span>
+          </button>
         </div>
 
       </div>

@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .footer {
   width: 100%;
   background: linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);

@@ -1,8 +1,13 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 #hero {
   position: relative;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 700px;
+  min-height: 70vh;
+  height: auto;
+  padding-bottom: 60px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -379,9 +384,8 @@
 
 @media (max-width: 968px) {
   #hero {
-    height: 60vh;
-    min-height: 400px;
-    max-height: 600px;
+    min-height: 60vh;
+    height: auto;
   }
   
   .hero-content {
@@ -408,9 +412,8 @@
 
 @media (max-width: 768px) {
   #hero {
-    height: 55vh;
-    min-height: 400px;
-    max-height: 550px;
+    min-height: 55vh;
+    height: auto;
   }
   
   .hero-content {
@@ -467,9 +470,8 @@
 
 @media (max-width: 768px) and (orientation: landscape) {
   #hero {
-    height: 50vh;
-    min-height: 350px;
-    max-height: 500px;
+    min-height: 50vh;
+    height: auto;
   }
   
   .hero-content {

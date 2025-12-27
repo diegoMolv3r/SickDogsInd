@@ -14,12 +14,9 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; REMOVED to allow full width */
     color: #ffffff;
-    background-image: url("./assets/img/fondos/TexturaBg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #1a0303;
 
     overflow-x: hidden;
   }
@@ -37,4 +34,9 @@
       font-weight: 600;
       font-style: normal;
       font-variation-settings: "wdth" 100;
+  }
+
+  app-root {
+      display: block;
+      width: 100%;
   }

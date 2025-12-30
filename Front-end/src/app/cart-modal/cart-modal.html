@@ -58,16 +58,23 @@
     <div class="modal-footer" *ngIf="cartItems.length > 0">
       <div class="footer-actions">
         <button class="clear-cart-btn" (click)="clearCart()">
-          <i class="bi bi-trash"></i> Vaciar Carrito
+          <i class="bi bi-trash"></i> Vaciar
         </button>
         <div class="total-section">
           <span class="total-label">Total:</span>
           <span class="total-amount">${{ getTotalPrice() }}</span>
         </div>
       </div>
-      <button class="checkout-btn">
-        <i class="bi bi-bag-check"></i> Finalizar Compra
-      </button>
+
+      <div class="checkout-section">
+        <p *ngIf="showCopiedMessage" class="copied-feedback">
+          <i class="bi bi-check-circle"></i> ¡Pedido copiado! Pégalo en el chat.
+        </p>
+        
+        <button class="checkout-btn instagram-btn" (click)="checkout()">
+          <i class="bi bi-instagram"></i> Pagar en Instagram
+        </button>
+      </div>
     </div>
   </div>
 </div>

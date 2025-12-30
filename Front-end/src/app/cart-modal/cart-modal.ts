@@ -14,6 +14,7 @@ export class CartModalComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   isOpen = false;
   private cartSubscription?: Subscription;
+  showCopiedMessage = false;
 
   ngOnInit() {
     this.cartSubscription = this.cartService.cart$.subscribe(items => {
@@ -54,6 +55,37 @@ export class CartModalComponent implements OnInit, OnDestroy {
   onBackdropClick(event: Event) {
     if ((event.target as HTMLElement).classList.contains('modal-backdrop')) {
       this.closeModal();
+    }
+  }
+
+  checkout() {
+    const message = this.cartService.generateOrderMessage();
+
+    navigator.clipboard.writeText(message).then(() => {
+      
+      this.showCopiedMessage = true;
+      setTimeout(() => this.showCopiedMessage = false, 3000);
+
+      this.openInstagram();
+
+    }).catch(err => {
+      console.error('Error al copiar: ', err);
+      this.openInstagram();
+    });
+  }
+
+  private openInstagram() {
+    const igUser = 'sickdogs.ind'; 
+    
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = `instagram://user?username=${igUser}`;
+      setTimeout(() => {
+        window.open(`https://www.instagram.com/${igUser}/`, '_blank');
+      }, 1000);
+    } else {
+      window.open(`https://ig.me/m/${igUser}`, '_blank');
     }
   }
 }

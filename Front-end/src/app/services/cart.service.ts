@@ -97,5 +97,17 @@ export class CartService {
       console.error('Error loading cart from storage:', error);
     }
   }
+
+  generateOrderMessage(): string {
+    const itemsList = this.cartItems.map(item => {
+      const subtotal = item.producto.precio * item.cantidad;
+      // Formato: - Remera Slipknot (L) x1: $25000
+      return `- ${item.producto.nombre} (${item.talle}) x${item.cantidad}: $${subtotal}`;
+    }).join('\n');
+
+    const total = this.getTotalPrice();
+
+    return `Hola SickDog! 🤘\nQuiero realizar el siguiente pedido:\n\n${itemsList}\n\n*TOTAL A PAGAR: $${total}*\n\n¿Me confirman stock y datos para transferir?`;
+  }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, ViewChild, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class Header implements OnInit, OnDestroy {
   cartService = inject(CartService);
   cartItemCount = 0;
+  isMenuOpen = false;
   private cartSubscription?: Subscription;
   
   @ViewChild('cartModal') cartModalComponent?: CartModalComponent;
@@ -30,5 +31,28 @@ export class Header implements OnInit, OnDestroy {
 
   openCart() {
     this.cartModalComponent?.openModal();
+    this.closeMenu(); // Cerrar menú móvil si está abierto
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden'; // Prevenir scroll cuando el menú está abierto
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    // Cerrar menú automáticamente en pantallas grandes
+    if (window.innerWidth > 768 && this.isMenuOpen) {
+      this.closeMenu();
+    }
   }
 }

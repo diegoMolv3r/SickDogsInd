@@ -9,7 +9,12 @@ Plataforma de comercio electrónico desarrollada con **Angular**, diseñada bajo
 * **UI de Alto Impacto:** Fondo con efecto *parallax* fijo, uso de filtros CSS para texturas y logotipos SVG dinámicos para una carga optimizada.
 * **Responsive Design:** Interfaz adaptada para dispositivos móviles, priorizando la visualización del catálogo y la facilidad de contacto.
 
+## 🛠️ Stack Tecnológico
 
+* **Framework:** Angular (v18+ con componentes Standalone).
+* **Estado:** RxJS para el manejo del flujo de datos del carrito.
+* **Estilos:** CSS3 con variables personalizadas y filtros avanzados.
+* **Iconos:** Bootstrap Icons e iconos personalizados de marca.
 
 ## 🎨 Sobre la Marca
 

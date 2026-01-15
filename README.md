@@ -2,6 +2,13 @@
 
 Plataforma de comercio electrónico desarrollada con **Angular**, diseñada bajo una estética **Dark Metal/Grunge** para una marca de indumentaria de rock y metal personalizada.
 
+## 🚀 Funcionalidades destacadas
+
+* **Carrito con Persistencia:** Gestión reactiva del estado con `RxJS` y almacenamiento en `localStorage` para evitar la pérdida de datos.
+* **Checkout Directo a Instagram:** Flujo de compra personalizado que genera un resumen detallado del pedido, lo copia al portapapeles y redirige al usuario al chat de la marca para finalizar el pago.
+* **UI de Alto Impacto:** Fondo con efecto *parallax* fijo, uso de filtros CSS para texturas y logotipos SVG dinámicos para una carga optimizada.
+* **Responsive Design:** Interfaz adaptada para dispositivos móviles, priorizando la visualización del catálogo y la facilidad de contacto.
+
 
 
 ## 🎨 Sobre la Marca

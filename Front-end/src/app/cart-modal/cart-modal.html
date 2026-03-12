@@ -1,18 +1,21 @@
 <div class="modal-backdrop" 
      *ngIf="isOpen" 
      (click)="onBackdropClick($event)"
-     [class.show]="isOpen">
+     [class.show]="isOpen"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="cart-modal-title">
   <div class="modal-container" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2 class="modal-title">Carrito de Compras</h2>
-      <button class="close-button" (click)="closeModal()">
-        <i class="bi bi-x-lg"></i>
+      <h2 id="cart-modal-title" class="modal-title">Carrito de Compras</h2>
+      <button class="close-button" (click)="closeModal()" aria-label="Cerrar carrito">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
       </button>
     </div>
 
     <div class="modal-body">
       <div *ngIf="cartItems.length === 0" class="empty-cart">
-        <i class="bi bi-cart-x empty-cart-icon"></i>
+        <i class="bi bi-cart-x empty-cart-icon" aria-hidden="true"></i>
         <p class="empty-cart-text">Tu carrito está vacío</p>
         <p class="empty-cart-subtext">Agrega productos para comenzar</p>
       </div>
@@ -20,7 +23,7 @@
       <div *ngIf="cartItems.length > 0" class="cart-items">
         <div *ngFor="let item of cartItems; let i = index" class="cart-item">
           <div class="item-image">
-            <img [src]="item.producto.imagen" [alt]="item.producto.nombre">
+            <img [src]="item.producto.imagen" [alt]="item.producto.nombre" width="80" height="80">
           </div>
           
           <div class="item-details">
@@ -33,17 +36,17 @@
 
           <div class="item-controls">
             <div class="quantity-controls">
-              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad - 1)">
-                <i class="bi bi-dash"></i>
+              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad - 1)" aria-label="Reducir cantidad">
+                <i class="bi bi-dash" aria-hidden="true"></i>
               </button>
               <span class="quantity-value">{{ item.cantidad }}</span>
-              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad + 1)">
-                <i class="bi bi-plus"></i>
+              <button class="quantity-btn" (click)="updateQuantity(i, item.cantidad + 1)" aria-label="Aumentar cantidad">
+                <i class="bi bi-plus" aria-hidden="true"></i>
               </button>
             </div>
             
-            <button class="remove-btn" (click)="removeItem(i)">
-              <i class="bi bi-trash"></i>
+            <button class="remove-btn" (click)="removeItem(i)" aria-label="Eliminar producto del carrito">
+              <i class="bi bi-trash" aria-hidden="true"></i>
             </button>
           </div>
 
@@ -57,8 +60,8 @@
 
     <div class="modal-footer" *ngIf="cartItems.length > 0">
       <div class="footer-actions">
-        <button class="clear-cart-btn" (click)="clearCart()">
-          <i class="bi bi-trash"></i> Vaciar
+        <button class="clear-cart-btn" (click)="clearCart()" aria-label="Vaciar carrito">
+          <i class="bi bi-trash" aria-hidden="true"></i> Vaciar
         </button>
         <div class="total-section">
           <span class="total-label">Total:</span>
@@ -68,14 +71,13 @@
 
       <div class="checkout-section">
         <p *ngIf="showCopiedMessage" class="copied-feedback">
-          <i class="bi bi-check-circle"></i> ¡Pedido copiado! Pégalo en el chat.
+          <i class="bi bi-check-circle" aria-hidden="true"></i> ¡Pedido copiado! Pégalo en el chat.
         </p>
         
         <button class="checkout-btn instagram-btn" (click)="checkout()">
-          <i class="bi bi-instagram"></i> Pagar en Instagram
+          <i class="bi bi-instagram" aria-hidden="true"></i> Pagar en Instagram
         </button>
       </div>
     </div>
   </div>
 </div>
-

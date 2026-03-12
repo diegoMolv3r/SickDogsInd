@@ -1,13 +1,13 @@
 <article class="producto" [routerLink]="['/producto', producto.nombre]">
-    <img [src]="producto.imagen" [alt]="producto.nombre">
+    <img [ngSrc]="producto.imagen" [alt]="producto.nombre" width="300" height="380">
     <div class="informacion-producto">
         <h3 class="titulo-producto">{{producto.nombre}}</h3>
         <p class="descripcion-producto">{{producto.descripcion}}</p>
         <span class="categoria-producto">{{producto.categoria}}</span>
         <div>
             <p class="precio-producto"><strong>Precio: </strong>${{producto.precio}}</p>
-            <button class="boton-carrito" precio-producto="" imagen-producto="" nombre-producto="">
-                <i class="bi bi-cart"></i>
+            <button class="boton-carrito" aria-label="Agregar al carrito">
+                <i class="bi bi-cart" aria-hidden="true"></i>
             </button>
         </div>
     </div>

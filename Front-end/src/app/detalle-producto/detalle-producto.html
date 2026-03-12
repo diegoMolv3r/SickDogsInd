@@ -10,14 +10,16 @@
     <div class="product-content-wrapper">
       <div class="imagenes-section">
         <div class="imagen-principal-container">
-          <img [src]="imagenSeleccionada || producto.imagen" alt="Imagen principal" class="imagen-principal">
+          <img [src]="imagenSeleccionada || producto.imagen" alt="Imagen principal" class="imagen-principal" width="600" height="600">
         </div>
         <div class="miniaturas-container">
           <img *ngFor="let mini of obtenerTodasLasImagenes()"
                [src]="mini"
                (click)="seleccionarImagen(mini)"
                class="miniatura"
-               [class.activa]="mini === imagenSeleccionada">
+               [class.activa]="mini === imagenSeleccionada"
+               width="100" height="100"
+               alt="Miniatura del producto">
         </div>
       </div>
   

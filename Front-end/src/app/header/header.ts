@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy, inject, ViewChild, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { CartModalComponent } from '../cart-modal/cart-modal';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, CommonModule, CartModalComponent],
+  imports: [RouterLink, RouterLinkActive, CommonModule, CartModalComponent, NgOptimizedImage],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
